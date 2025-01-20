@@ -32,26 +32,20 @@ header {
 nav {
   color: var(--secondary-fg);
   background-color: var(--primary-fg);
-  width: 90%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   justify-self: center;
   align-items: center;
-}
-.navbar{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  height: 40px;
-  justify-items: center;
-  width: 100%;
-}
-.navbar a { 
-  display: block;
 }
 
 nav ul {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0px;
 }
 
 nav a {
