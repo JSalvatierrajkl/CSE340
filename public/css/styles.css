@@ -48,6 +48,10 @@ nav ul {
   padding: 0px;
 }
 
+ul{
+  list-style-type: none;
+}
+
 nav a {
   color: none;
   text-decoration: none;
@@ -185,7 +189,42 @@ footer {
   overflow: hidden;
 }
 
+/* --------------------- INVENTORY --------------------------- */
+#inv-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  gap: 10px;
+  padding: 10px;
+}
 
+#inv-display li{
+  margin: 10px;
+  background-color: #f5f5f5; /* Color de fondo opcional */
+  border: 1px solid black; /* Define el borde */
+  border-radius: 10px; /* Esquinas redondeadas */
+  overflow: hidden; /* Asegura que el contenido no se salga de los bordes redondeados */
+  display: flex;
+  flex-direction: column; /* Organiza los hijos en columna */
+  align-items: center; /* Centra el contenido horizontalmente */
+  text-align: center; /* Centra el texto dentro del div */
+  justify-content: space-between;
+}
+#inv-display a{
+  width: 100%;
+}
+#inv-display img{
+  width: 100%; /* Imagen ocupa el ancho completo del li */
+  border-radius: 10px;
+}
+#inv-display h2{
+  font-size: medium;
+}
+#inv-display hr{
+  border: 1.5px solid black;
+}
+.namePrice{
+  width: 100%;
+}
 @media screen and (min-width: 600px) {
   body {
     display: flex;
@@ -202,7 +241,7 @@ footer {
   }
   .content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr ;
     gap: 1rem;
   }
   section#reviews {
@@ -213,10 +252,10 @@ footer {
     grid-column: 1/2;
     grid-row: 1/2;
   }
-  ul#inv-display {
+  #inv-display {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+    grid-template-columns: 1fr 1fr 1fr;
+  } 
   section.car-listing{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -229,5 +268,4 @@ footer {
     grid-column: 2/3;
     grid-row: 1/2;
   }
-
 }

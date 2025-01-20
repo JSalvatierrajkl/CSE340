@@ -11,7 +11,7 @@ const app = express()
 const static = require("./routes/static")
 const expressEjsLayouts = require("express-ejs-layouts")
 const baseController = require("./controllers/baseController")
-
+const inventoryRoute  = require("./routes/inventoryRoute.js")
 app.set("view engine", "ejs")
 app.use(expressEjsLayouts)
 app.set("layout", "./layouts/layout")
@@ -19,6 +19,8 @@ app.set("layout", "./layouts/layout")
 /* ***********************
  * Routes
  *************************/
+// Inventory routes
+app.use("/inv", inventoryRoute)
 app.get("/", baseController.buildHome)
 app.use(require("./routes/static"))
 app.get("/", function(req, res) {
