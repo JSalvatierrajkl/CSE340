@@ -11,6 +11,7 @@ const app = express()
 const static = require("./routes/static")
 const expressEjsLayouts = require("express-ejs-layouts")
 const baseController = require("./controllers/baseController")
+const TestingErrorRoute = require("./routes/testingErrorRoute.js");
 const utilities = require('./utilities/index.js');
 const inventoryRoute  = require("./routes/inventoryRoute.js")
 app.set("view engine", "ejs")
@@ -27,10 +28,14 @@ app.use(require("./routes/static"))
 app.get("/", function(req, res) {
   res.render("index", {title:"home"})
 })
+// Testing error route.
+app.use("/t-error", TestingErrorRoute);
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry🙁🙃😕<br>This page doesnt exists, please select one item from the navbar to stand with us!😎'})
+  next({status: 404, message: 'Unfortunately, we don\'t have that page in stock.'})
 })
+
 
 /* ***********************
 * Express Error Handler
@@ -39,6 +44,7 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  console.dir(err);
   if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
   res.render("errors/error", {
     title: err.status || 'Server Error',
@@ -47,8 +53,25 @@ app.use(async (err, req, res, next) => {
   })
 })
 
+// // File Not Found Route - must be last route in list
+// app.use(async (req, res, next) => {
+//   next({status: 404, message: 'Sorry🙁🙃😕<br>This page doesnt exists, please select one item from the navbar to stand with us!😎'})
+// })
 
-
+// /* ***********************
+// * Express Error Handler
+// * Place after all other middleware
+// *************************/
+// app.use(async (err, req, res, next) => {
+//   let nav = await utilities.getNav()
+//   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+//   if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
+//   res.render("errors/error", {
+//     title: err.status || 'Server Error',
+//     message,
+//     nav
+//   })
+// })
 
 /* ***********************
  * Local Server Information

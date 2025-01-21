@@ -19,4 +19,21 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
+
+// Build a view to display each vehicle, one by one
+invCont.buildByInventoryId = async function (req, res, next) {
+    const inventory_id = req.params.inventoryId;
+    //const data = await invModel.getInventoryByInventoryId(inventoryId + 5); // Buggy code
+    const data = await invModel.getInventoryByInventoryId(inventory_id); // Clean code
+    const listing = await utilities.buildItemListing(data[0]);
+    let nav = await utilities.getNav();
+    const itemName = `${data[0].inv_make} ${data[0].inv_model}`;
+    
+    res.render("inventory/listing", {
+      title: itemName,
+      nav,
+      listing,
+    });
+  };
+
 module.exports = invCont
