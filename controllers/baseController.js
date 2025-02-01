@@ -1,14 +1,10 @@
-const utilities = require("../utilities/index.js")
+const utilities = require("../utilities/")
 const baseController = {}
-
 
 baseController.buildHome = async function (req, res) {
     const nav = await utilities.getNav()
+    // req.flash("notice", "This is a flash message.!!!@2")
     res.render("index", { title: "Home", nav })
 }
-const triggerError = (req, res, next) => {
-    throw new Error('Intentional error for testing purposes.');
-  };
 
-  
-module.exports = baseController, triggerError;
+module.exports = baseController;

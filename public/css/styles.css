@@ -24,6 +24,7 @@ body {
   margin: 0 auto;
   font-family: var(--body-font);
   width: 70%;
+  display: flex;
 }
 header {
   display: grid;
@@ -50,6 +51,7 @@ nav ul {
 
 ul{
   list-style-type: none;
+  padding: 0px;
 }
 
 nav a {
@@ -249,6 +251,60 @@ section#carListing img {
 
 #error-display img{
   width: 100%;
+}
+/* ------------------------------Login----------------------------------- */
+#login, #register, #inventory, #classification{
+  display: flex;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;             
+  padding: 20px;        
+  background-color: var(--primary-fg);
+  
+  max-width: 300px;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 .2rem .5rem rgba(0, 0, 0, 0.298);
+  margin-bottom: 1rem;
+  width: 100%;
+}
+form.form label {
+  color: var(--secondary-bg);
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  position: relative;
+}
+form.form input, form.login-form select {
+  padding: .5rem;
+  border: none;
+}
+form.form input::placeholder, form.login-form select::placeholder, form.login-form textarea::placeholder {
+  color: rgba(0, 0, 0, 0.27)
+}
+form.form input:invalid {
+  border-right: 5px solid red;
+}
+form.form input[type="submit"] {
+  font-size: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: fit-content;
+  align-self: center;
+  background-color: var(--pop);
+  color: white;
+  border: none;
+  border-radius: .5rem;
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.368);
+  background-color: var(--secondary-bg);
+}
+.fine-print {
+  font-size: .75em;
+  color: var(--secondary-fg);
+  margin-top: -8px;
 }
 
 @media screen and (min-width: 600px) {
