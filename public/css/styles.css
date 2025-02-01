@@ -306,6 +306,21 @@ form.form input[type="submit"] {
   color: var(--secondary-fg);
   margin-top: -8px;
 }
+.reveal-button {
+  color: transparent;
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  background-color: transparent;
+  background-image: url("/images/site/visibilityon.svg");
+  background-size: contain;
+  height: 2rem;
+  width: 2rem;
+  border: 0;
+}
+.reveal-button.active {
+  background-image: url("/images/site/visibility_off.svg");
+}
 
 @media screen and (min-width: 600px) {
   body {
