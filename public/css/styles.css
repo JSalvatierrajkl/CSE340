@@ -253,17 +253,17 @@ section#carListing img {
   width: 100%;
 }
 /* ------------------------------Login----------------------------------- */
-#login, #register, #inventory, #classification{
+#login, #register, #inventory, #classification, .formContainer{
   display: flex;
   justify-content: center;
+  gap: 1rem;
 }
-.form {
+.inputBox , .loginForm, .manageBox{
   display: flex;
   flex-direction: column;
   gap: 10px;             
   padding: 20px;        
   background-color: var(--primary-fg);
-  
   max-width: 300px;
   padding: 1rem;
   border-radius: .5rem;
@@ -271,24 +271,27 @@ section#carListing img {
   margin-bottom: 1rem;
   width: 100%;
 }
-form.form label {
+.manageBox{
+  color:#e1e1e1
+}
+form.inputBox label, form.loginForm label ,.manageBox{
   color: var(--secondary-bg);
   display: flex;
   flex-direction: column;
   gap: .5rem;
   position: relative;
 }
-form.form input, form.login-form select {
+form.inputBox input, form.inputBox select, form.loginForm input, form.loginForm select,.manageBox{
   padding: .5rem;
   border: none;
 }
-form.form input::placeholder, form.login-form select::placeholder, form.login-form textarea::placeholder {
+form.inputBox input::placeholder, form.inputBox select::placeholder, form.inputBox textarea::placeholder, form.loginForm input::placeholder, form.loginForm select::placeholder, form.loginForm textarea::placeholder ,.manageBox{
   color: rgba(0, 0, 0, 0.27)
 }
-form.form input:invalid {
+form.inputBox input:invalid , form.loginForm input:invalid {
   border-right: 5px solid red;
 }
-form.form input[type="submit"] {
+form.inputBox input[type="submit"], form.loginForm input[type="submit"] {
   font-size: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -301,7 +304,7 @@ form.form input[type="submit"] {
   box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.368);
   background-color: var(--secondary-bg);
 }
-.fine-print {
+.fine-print ,.manageBox{
   font-size: .75em;
   color: var(--secondary-fg);
   margin-top: -8px;

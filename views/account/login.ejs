@@ -7,14 +7,13 @@
   <%  }) %>
    </ul>
   <% } %>
-<div id="login">
-    <form class="form" action="/account/login" method="post">
-        <label>Email<input type="email" name="account_email" required autocomplete="email username" value="<%= locals.account_email %>"></label>
-        <label>Password<input type="password" name="account_password" id="password" required autocomplete="current-password"><button class="reveal-button active" id="passwordHide" type="button">hide password</button></label>
+  <div class="formContainer">
+    <form class="inputBox" id="loginForm" action="/account/login" method="post">
+        <label>Email<input type="email" name="account_email" required autocomplete="email" value="<%= locals.account_email %>"></label>
+        <label>Password<input type="password" name="account_password" id="password" required autocomplete="current-password" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{12,}$"><span class="reveal-button active" id="passwordHide">hide password</span></label>
         <input type="submit" value="LOGIN">
     </form>
-</div>
-
+  </div>
 <div>
     <span>No account? <a href="/account/registration">Sign up</a></span>
 </div>
