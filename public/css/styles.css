@@ -28,7 +28,7 @@ body {
 }
 header {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 1.5fr;
 }
 nav {
   color: var(--secondary-fg);
@@ -323,6 +323,68 @@ form.inputBox input[type="submit"], form.loginForm input[type="submit"] {
 }
 .reveal-button.active {
   background-image: url("/images/site/visibility_off.svg");
+}
+
+/* ------------------------------SEARCHING----------------------------------- */
+#tools {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#search-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  width: 100%;
+  margin-top: 0px !important;
+  grid-column: 2/2;
+  border: 1px solid black;
+  border-radius: 4px;
+  position: relative;
+}
+
+#search-input {
+  background-color: rgb(159, 205, 245);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+#search-form button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #007bff;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+#search-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for autocomplete suggestions */
+.autocomplete-suggestions {
+  display: none; 
+  background-color: rgb(159, 205, 245);
+  border: 1px solid #999;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 10;
+  width: calc(100% - 2px); 
+  border: 1px solid black;
+  border-radius: 4px;
+  top: calc(100% + 2px); 
+  left: 0; 
+}
+
+.autocomplete-suggestion {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.autocomplete-suggestion:hover {
+  background: #f0f0f0;
 }
 
 @media screen and (min-width: 600px) {

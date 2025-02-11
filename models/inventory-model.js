@@ -154,6 +154,20 @@ async function deleteInventory(inv_id) {
   }
 }
 
+/* *****************************
+ * Search inventory by name or description for autocomplete
+ * ***************************** */
+async function searchInventoryAutocomplete(query) {
+  try {
+    const sql = "SELECT inv_id, inv_make, inv_model FROM inventory WHERE inv_make ILIKE $1 OR inv_model ILIKE $1";
+    const values = [`%${query}%`];
+    const result = await pool.query(sql, values);
+    return result.rows;
+  } catch (error) {
+    return error.message;
+  }
+}
+
 module.exports = {
   getClassifications,
   getInventoryByClassificationId,
@@ -161,5 +175,6 @@ module.exports = {
   addClassification,
   addInventory,
   updateInventory,
-  deleteInventory
+  deleteInventory,
+  searchInventoryAutocomplete
 };
